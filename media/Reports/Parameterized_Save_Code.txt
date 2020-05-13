@@ -1,0 +1,17 @@
+public void SaveParameterizedStd(StudentReg std)
+		{
+			using (var connection = new SqlConnection(conn))
+			using (var command = connection.CreateCommand())
+			{
+				command.CommandText = @"exec spInsertStd @Name,@Phone,@Username,@Password";
+				//command.Parameters.AddWithValue("@ID", std.ID);
+				command.Parameters.AddWithValue("@Name", std.Name);
+				command.Parameters.AddWithValue("@Phone", std.Phone);
+				command.Parameters.AddWithValue("@Username", std.Username);
+				command.Parameters.AddWithValue("@Password", std.Password);
+
+				connection.Open();
+				command.ExecuteNonQuery();
+				connection.Close();
+			}
+		}

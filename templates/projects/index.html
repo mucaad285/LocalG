@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Trending Area Start -->
+    <div class="trending-area fix">
+        <div class="container">
+            <div class="trending-main">
+                <!-- Trending Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                      
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Trending Top -->
+                        <div class="trending-top mb-30">
+                            <div class="trend-top-img">
+                                <img src="{% static 'assets/img/sawir.jpg' %}" alt="">
+                                <div class="trend-top-cap">
+                       
+                                    <h2><a href="{% url 'message_from_mayor' %}">Ku soo Dhawow<br> Dawlada hoose ee degmada gabiley</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Trending Bottom -->
+                                                   
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Trending Area End -->
+
+
+    <!-- displaying projects in cars  -->
+<div class="container">
+    <hr>
+    <div class="row">
+        {% for projt in projects%}
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{projt.image.url}}" width="200px" height="150px" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{projt.title}}</h5>
+                  <p class="card-text">
+                      {{projt.description}}
+                   </p>
+                  <a href="{% url 'single_project_id' projt.id %}" class="btn btn-primary">Read More</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+</div>
+    
+
+{% endblock %}

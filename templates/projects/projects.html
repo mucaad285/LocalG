@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--================Blog Area =================-->
+       
+    <section class="project_area section-padding">
+        <div class="container">
+        
+            <div class="row">
+            
+                <div class="col-lg-8 mb-5 mb-lg-0">
+                    <div class="blog_left_sidebar">
+                      
+                        <article class="blog_item">
+                            
+                            {% for proj in projects %}
+                            <div class="blog_item_img">
+                                <img class="card-img rounded-0" src="{{ proj.image.url }}" alt="">
+                                <!-- static 'assets/img/blog/single_blog_5.png' -->
+                            </div>
+                         
+                            <div class="blog_details">
+                                <a class="d-inline-block" href="{% url 'single_project_id' proj.id %}">
+                                    <h2>{{proj.title}}</h2>
+                                </a>
+                                <p>{{proj.description}}</p>
+                                <!-- <ul class="blog-info-link">
+                                    <li><a href="#"><i class="fa fa-comments"></i> {{proj.count}} Comments</a></li>
+                                </ul> -->
+                            </div>   
+                            <br><br><br>
+                            {% endfor %}
+                        </article>
+                    
+                      
+                    </div>
+                </div>
+                {% include 'projects/sidebar.html' %}
+
+                
+            </div>
+          
+        </div>
+    </section>
+
+
+    
+    <!--================Blog Area =================-->
+
+    {% endblock %}

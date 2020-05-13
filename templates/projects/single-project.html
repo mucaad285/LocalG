@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ 
+
+   <!--================Blog Area =================-->
+   
+   <section class="blog_area single-post-area section-padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-10 posts-list">
+               {% for p in projka %}
+               
+               <div class="single-post">
+                  <div class="feature-img">
+                     <!-- <img class="img-fluid" src="{% static 'assets/img/blog/single_blog_1.png' %}" alt=""> -->
+                     <img class="img-fluid" src="{{ p.image.url }}"  width = '300px' height = '300px'  alt="">
+                  </div>
+                  
+                     <div class="blog_details">
+                        <h2>
+                           {{p.title}}
+                        </h2>
+                        <!-- <ul class="blog-info-link mt-3 mb-4">
+                        <li><a href="#"><i class="fa fa-comments"></i> {{p.count}} Comments</a></li>
+                        </ul> -->
+                        <p class="excert">
+                          {{p.description}}
+                        </p>
+                     </div>
+                     {% endfor %}
+                  </div>
+          
+                  {% include 'projects/proj_gallery.html' %}
+               
+                  {% include 'projects/comments.html' %}
+                  {% include 'projects/sendcomment.html' %}
+
+            </div>
+           
+         </div>
+      </div>
+   </section>
+ 
+   <!--================ Blog Area end =================-->
+{% endblock %}

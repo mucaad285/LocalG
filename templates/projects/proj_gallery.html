@@ -1,0 +1,17 @@
+
+{% load static %}
+<h1>Project Gallery...</h1>
+<div class="container">
+    <div class="row">
+        {%for pro in pr %}
+        <div class="col-md-4">     
+            <img src="{{pro.images.url }}" width = '100%' height = '100%' />             
+        </div>
+        
+        {% endfor %}
+       
+    </div>
+   
+</div>
+
+
